@@ -1,0 +1,3 @@
+Client Id:    AQ4HdfTDB3P-Yhph1Bgk866A0otZbgzrHGxsSwNPsSw6MF6UNjf7GmB8-Aq_NxUn79hwI36p4cA9GHKm
+Secret:       ELDraMs75sbxpMYdPlOpQDAelawwqhE-cCzYM98RITmsnfFUdOWfa_OndcWcmT4a7JedWTAAICgwJ88s
+ Access token:   A21AALCDQtmle8M9JIMdFse0RqKbVgTXbM_q_R20yYbRtasW3Z6kG5rfUAkT8uChJRNw0Y7v_zSKlbUDIJ7LyFFOuHpBVj0UA

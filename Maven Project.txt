@@ -1,0 +1,174 @@
+Website for Hybrid model demo:http://automationpractice.com/index.php        kaka@212021@gmail.com  kaka212021
+Website for POM: https://www.saucedemo.com/    
+Jenkins: http://localhost:8080/  
+
+------------------Class-1-----------------------------
+-----------------Class-2--------------------------
+--------------------Log4j2----------------------------------------------------------
+
+status = warn
+
+properties.filename = Logs
+appenders = file , console 
+
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+
+appender.file.type = File
+appender.file.name = LogFile
+appender.file.fileName= $(filename}/mylog.log             // save file in the Logs folder
+appender.file.layout.type=PatternLayout
+appender.file.layout.pattern=[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+
+loggers = file
+logger.file.name = myProject1   // Project name
+logger.file.level = debug
+logger.file.appenderRef = file
+logger.file.appenderRef.file.ref = LogFile
+
+rootLogger.level = debug
+rootLogger.appenderRefs = stdout
+rootLogger.appnderRef.stdout.ref =STDOUT
+
+
+----------------Class-3------------------------
+1. Add extent report
+2. Capture screenshots of failed test cases.
+3. Add screenshot to extent report.
+4. Add new test cases( Verify login)
+
+ExtentSparkReporter htmlReporter;
+	ExtentReports reports;
+	ExtentTest test;
+	/* Remember, we have to congogure this method before the execution of the test cases.Because onstart method execute firts before class start, so we can
+	   configure this method inside the onstart method */
+	public void configureReports()
+	{
+	htmlReporter = new ExtentSparkReporter ("");
+	reports = new ExtentReports();
+	reports.attachReporter(htmlReporter);
+
+	// Add system/environmental information
+
+	reports.setSystemInfo("Machine:", "Mayank_HP_Laptop");
+	reports.setSystemInfo("Operating System:", "Window-11");
+	reports.setSystemInfo("Browser", "Chrome");
+	reports.setSystemInfo("User Name", "Mayank Kaushik");
+
+	// Configuration to change look and feel of report.
+	 htmlReporter.config().setDocumentTitle("");
+	  htmlReporter.config().setReportName("");
+	   htmlReporter.config().setTheme(Theme.DARK);
+
+	}       
+//a[@title='Pay by check.']//span[contains(text(),'(order processing will be longer)')]
+/html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/p[1]/a[1]
+}
+
+------------------Class-4--------------------------------------
+1. Running test case on multiple browsers.
+2. Data driven testing using testng data provider with excel.
+3. Apache poi jars( for handling excel file)
+4. Create excel file to store the test data.
+5. Read excel file ( utility to read test data file)
+6. @DataProvider
+Add remaining teste cases( search product, buy product, logout)
+Execution Pahse - Test execution within Eclipse/ outside eclipse.
+
+--------------Class-5-----------------------------------
+
+ 
+1.  Run Test cases using pom.xml : add plugins in pom.xml   1 surefire plugin and 2. complier plugin.  ( pom.xml file actually execute testng.xml file because we enter testng.xml in plugin. After successfull run: Build Success will showin console.
+                             <configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+
+
+2. Run Test cases using CMD:We use CMD command , but we need to install maven in cmd.website:  https://maven.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip
+Change directory from c to d ---> D: press enter
+Maven command: mvn test
+Maven version check comaand: mvn -version
+
+
+3. Run test cases using run.bat file :  Write two line in the file  ----> D: cd D:\My Project\MyProject1  
+                                                                           mvn test
+
+
+ ----------------------------class-6-------------------------------------------
+
+         JENKINS
+Jenkins:http://localhost:8080/
+Jenkins requirement: JDK8 or JDK11 only.
+Maven version also matter.
+we can excute test cases using  1. Free Style Project  2. Maven Project.( mostly used)
+Execute test cases using Maven Project: For this we will add plugins in jenkins. 
+Dashboard ->  Manage jenkins ->manage plugins ->search maven and install.
+Now do global setting.
+                
+
+        GIT/GITHUB
+
+Git/Github: used for version control , source code manage/maintain, 
+Git install in the local system and github is remote repository.
+Initally our source code in the working directory in the local machine , now we have Git which is installed in our local system. Between Git and working directory , source area come.
+So, our code first goes from working directory to source area, then goes from source area  to local Git repository. Then it goes to Github remote repository from local git repository.
+
+Git/Github commands:    Working Directory ---------git add ------>Source area -------git commit--------->Local Git Repository -----------git push ---------->GitHub-------------git pull----------->Working directory.
+
+URL: https://github.com/Mayank212021/MyFirstProject1Framework.git
+
+Open git bash at the project folder --> Command in git bash : git init  // for create empty git repositry.This is one time command
+
+For link between local and remote repository :git remote add origin  https://github.com/Mayank212021/MyFirstProject1Framework.git 
+For status of git repository : git status
+When files are in working directory: called Untracked files
+When files are in staging area : called tracked files
+
+git add -A   = Add all files in source area.( file color: green)
+
+// One time commands before commit//
+git config --global user.name "Mayank212021"
+git config --global user.email "kaushikmayank961@gmail.com"
+
+git commit -m " comment here"   = Now all file shift to local git repository from source work area ( file color: white)
+
+git push -u origin master  = Shift all files from local git to remote git repository.
+git pull  origin master  = shift file from remote git to local git.
+
+
+-----------------------------------------CUCUMBER BDD--------------------------------------------
+
+Feature: Portolo Login Functionality
+
+  Scenario: Successful Login with valid credentials
+    Given User launch Chrome browser
+    When User open the URL "https://portolo.azurewebsites.net/default.aspx"
+    And User enters the Email as "mayank.kaushik@keyideasglobal.com" and Password as "Kaushik212021"
+    And click on Login button
+    Then Page title should be "Portolo-Portolo"
+    When User click on Logout button
+    Then Page title should be "Portolo"
+    And Close browser
+
+
+<!-- https://mvnrepository.com/artifact/com.sun/tools -->
+<dependency>
+    <groupId>com.sun</groupId>
+    <artifactId>tools</artifactId>
+    <version>1.5.0</version>
+    <scope>system</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.sun/tools -->
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>system</scope>
+			<systemPath>C:\Program Files\Java\jdk-11.0.2\lib\tools-1.5.0.jar</systemPath>
+
+		</dependency>
