@@ -110,7 +110,7 @@ Dashboard ->  Manage jenkins ->manage plugins ->search maven and install.
 Now do global setting.
                 
 
-        GIT/GITHUB
+GIT/GITHUB
 
 Git/Github: used for version control , source code manage/maintain, 
 Git install in the local system and github is remote repository.
@@ -172,3 +172,7 @@ Feature: Portolo Login Functionality
 			<systemPath>C:\Program Files\Java\jdk-11.0.2\lib\tools-1.5.0.jar</systemPath>
 
 		</dependency>
+
+
+--------------------------Github postman collection run--------------------------------------
+https://github.com/Mayank212021/PostmanCollection.git
